@@ -17,7 +17,7 @@ A cutting-edge, interactive authentication interface featuring animated characte
 
 ## 📸 Live Demo
 
-![UXWebsite Demo](./assets/LiveDemo.png)
+![UXWebsite Demo](./src/assets/LiveDemo.png)
 
 ---
 
