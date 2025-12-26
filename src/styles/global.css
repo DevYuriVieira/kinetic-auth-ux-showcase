@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-family: 'Inter', sans-serif;
+  --bg-page: #f3f4f6;
+  --bg-panel: #ffffff;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --input-border: #d1d5db;
+}
+
+.dark {
+  --bg-page: #0f172a;
+  --bg-panel: #1e293b;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --input-border: #374151;
+}
+
+/* Checkbox branco em dark mode */
+.dark input[type="checkbox"] {
+  accent-color: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0; padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.eye {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: white !important; 
+  border: 3px solid black;
+  border-radius: 50%;
+  overflow: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20; 
+}
+
+.pupil {
+  position: absolute; /* ISSO FAZ A PUPILA APARECER E MEXER */
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  margin-top: -5px;  
+  margin-left: -5px; 
+  pointer-events: none;
+}
+
+/* Modos do olho */
+.eye.closed {
+  height: 8px;
+  background: #333 !important;
+  border: none;
+  border-radius: 4px;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+.eye.closed .pupil { 
+  display: none; 
+}
+
+.eye.surprise {
+  background: white !important;
+  border: 3px solid black;
+  width: 36px;
+  height: 36px;
+}
+.eye.surprise .pupil {
+  width: 12px;
+  height: 12px;
+  background-color: black;
+  margin-top: -6px;
+  margin-left: -6px;
+}
+
+.eye.happy {
+  background: white !important;
+  border: 3px solid black;
+}
+.eye.happy .pupil {
+  width: 6px;
+  height: 6px;
+  background-color: black;
+  margin-top: -3px;
+  margin-left: -3px;
+}
+
+.eye.side {
+  background: white !important;
+  border: 3px solid black;
+}
+.eye.side .pupil {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  transform: translateX(-8px);
+  margin-top: -5px;
+  margin-left: -5px;
+  transition: transform 0.2s ease;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+  .eye {
+    width: 24px;
+    height: 24px;
+    border: 2px solid black;
+  }
+
+  .pupil {
+    width: 8px;
+    height: 8px;
+    margin-top: -4px;
+    margin-left: -4px;
+  }
+
+  .eye.closed {
+    height: 6px;
+    margin-top: 8px;
+  }
+
+  .eye.happy .pupil {
+    width: 5px;
+    height: 5px;
+    margin-top: -2.5px;
+    margin-left: -2.5px;
+  }
+
+  .eye.side .pupil {
+    width: 8px;
+    height: 8px;
+    transform: translateX(-6px);
+    margin-top: -4px;
+    margin-left: -4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .eye {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+  }
+
+  .pupil {
+    width: 6px;
+    height: 6px;
+    margin-top: -3px;
+    margin-left: -3px;
+  }
+
+  .eye.closed {
+    height: 5px;
+    margin-top: 6px;
+  }
+
+  .eye.happy .pupil {
+    width: 4px;
+    height: 4px;
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .eye.side .pupil {
+    width: 6px;
+    height: 6px;
+    transform: translateX(-5px);
+    margin-top: -3px;
+    margin-left: -3px;
+  }
+}

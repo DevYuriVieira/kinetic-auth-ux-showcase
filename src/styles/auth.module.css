@@ -1,0 +1,343 @@
+
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  gap: 0;
+  position: relative;
+}
+
+.artSide {
+  flex: 1;
+  background-color: var(--bg-page);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background-color 0.3s;
+  padding: 40px 20px;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.scene {
+  width: 420px;
+  height: 320px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.formSide {
+  flex: 1;
+  background: linear-gradient(135deg, var(--bg-panel) 0%, rgba(79, 70, 229, 0.03) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+  transition: background 0.3s;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.formContent {
+  width: 100%;
+  max-width: 360px;
+  background: var(--bg-panel);
+  border-radius: 12px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.formContent:hover {
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+.formContent h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+
+.formContent p {
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+/* INPUTS */
+.inputGroup {
+  margin-bottom: 24px;
+}
+
+.inputGroup label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-main);
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  background: rgba(79, 70, 229, 0.02);
+}
+
+.input:hover {
+  border-color: #6366f1;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.forgot {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.errorMessage {
+  padding: 14px 16px;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.08) 100%);
+  border: 1.5px solid #ef4444;
+  border-radius: 8px;
+  color: #dc2626;
+  font-size: 0.9rem;
+  font-weight: 500;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.floatingToggle {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 50;
+}
+
+.signupLink {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.signupLink a {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .artSide {
+    width: 100%;
+    min-height: 250px;
+    padding: 30px 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .scene {
+    width: 100%;
+    height: 250px;
+    position: relative;
+  }
+
+  .scene > div {
+    transform: translateY(40px) !important;
+  }
+
+  .formSide {
+    width: 100%;
+    min-height: auto;
+    padding: 40px 20px;
+  }
+
+  .formContent {
+    max-width: 100%;
+    padding: 35px 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .formContent h2 {
+    font-size: 1.5rem;
+  }
+
+  .formContent p {
+    margin-bottom: 30px;
+  }
+
+  .inputGroup {
+    margin-bottom: 20px;
+  }
+
+  .inputGroup label {
+    font-size: 0.9rem;
+  }
+
+  .input {
+    padding: 10px;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .floatingToggle {
+    top: 15px;
+    right: 15px;
+  }
+
+  /* Character container signup - abaixa em tablets */
+  [style*="marginBottom: '0px'"] {
+    transform: translateY(30px) !important;
+  }
+}
+
+/* Mobile - 480px e menos */
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .artSide {
+    min-height: 200px;
+    padding: 20px 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .scene {
+    height: 200px;
+    width: 100%;
+    position: relative;
+  }
+
+  .scene > div {
+    transform: translateY(60px) !important;
+  }
+
+  .formSide {
+    padding: 30px 15px;
+  }
+
+  .formContent {
+    max-width: 100%;
+    padding: 30px 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .formContent h2 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+
+  .formContent p {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+  }
+
+  .inputGroup {
+    margin-bottom: 18px;
+  }
+
+  .inputGroup label {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+
+  .input {
+    padding: 10px 8px;
+    font-size: 16px; 
+  }
+
+  .signupLink {
+    font-size: 0.8rem;
+    margin-top: 15px;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .floatingToggle {
+    top: 10px;
+    right: 10px;
+  }
+
+  [style*="marginBottom: '0px'"] {
+    transform: translateY(50px) !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .formContent h2 {
+    font-size: 1.1rem;
+  }
+
+  .formContent p {
+    font-size: 0.8rem;
+  }
+
+  .input {
+    font-size: 14px;
+  }
+
+  .inputGroup label {
+    font-size: 0.75rem;
+  }
+}

@@ -1,0 +1,123 @@
+/* Container para posicionar o ícone dentro */
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 42px 12px 12px;
+  border: 1px solid var(--input-border, #ccc);
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--text-main, #000);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+/* O botão invisível do olho */
+.eyeToggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted, #666);
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+}
+
+.eyeToggle:hover {
+  color: #4f46e5;
+  transform: translateY(-50%) scale(1.1);
+  background: rgba(79, 70, 229, 0.05);
+}
+
+.eyeToggle:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.eyeToggle:hover {
+  color: var(--text-main, #000);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.eyeToggle:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Estilos do Botão Principal (Button.jsx usa isso) */
+.button {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #4338ca 0%, #4f46e5 100%);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(79, 70, 229, 0.2);
+}
+
+/* ===============================
+   RESPONSIVIDADE
+================================ */
+
+@media (max-width: 768px) {
+  .input {
+    padding: 10px 38px 10px 10px;
+    font-size: 0.95rem;
+  }
+
+  .eyeToggle {
+    right: 10px;
+    padding: 3px 6px;
+  }
+
+  .button {
+    padding: 11px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .input {
+    padding: 10px 36px 10px 10px;
+    font-size: 16px; /* Evita zoom no iOS */
+  }
+
+  .eyeToggle {
+    right: 8px;
+    padding: 2px 5px;
+  }
+
+  .button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,183 @@
+
+.character {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,0.2));
+}
+
+.character.tilted {
+  transform: rotate(-5deg);
+  animation: tilt-shake 0.4s ease-in-out;
+}
+
+@keyframes tilt-shake {
+  0%, 100% { transform: rotate(-5deg); }
+  25% { transform: rotate(-8deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(-2deg); }
+}
+
+.eyesRow {
+  display: flex;
+  gap: 14px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.mouth {
+  width: 20px;
+  height: 8px;
+  background: #222;
+  border-radius: 0 0 20px 20px;
+  transition: all 0.2s;
+  z-index: 20;
+  margin-top: 10px;
+}
+
+.mouth.idle { width: 20px; }
+.mouth.typing { width: 12px; height: 12px; border-radius: 50%; }
+.mouth.password { width: 22px; height: 4px; border-radius: 4px; transform: translateY(-2px); }
+.mouth.submit { width: 40px; height: 22px; border-radius: 0 0 40px 40px; background: white; }
+.mouth.closed { width: 18px; height: 2px; border-radius: 2px; background: #222; }
+.mouth.surprise { width: 16px; height: 20px; border-radius: 50%; background: #222; }
+.mouth.side { 
+  width: 8px; 
+  height: 20px; 
+  border-radius: 4px; 
+  transform: rotateZ(45deg);
+  background: #222;
+}
+
+/* 1. AZUL (Torre Esquerda - Trás) */
+.rectangle {
+  width: 140px;
+  height: 300px; 
+  background-color: #4f46e5; 
+  border-radius: 6px; 
+  justify-content: flex-start;
+  padding-top: 50px;
+}
+
+/* 2. VERMELHO (Torre Direita - Meio)  */
+.box {
+  width: 90px;
+  height: 180px; 
+  background-color: red; 
+  border-radius: 6px;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+.box .eyesRow { gap: 10px; }
+
+/* 3. LARANJA (Semicírculo - Frente Esquerda) */
+.semicircle {
+  width: 170px;
+  height: 100px;
+  background-color: #f97316; 
+  border-radius: 100px 100px 0 0; 
+  justify-content: center; 
+  padding-top: 20px;
+}
+
+/* 4. AMARELO (Cápsula - Frente Direita) */
+.cylinder {
+  width: 100px;
+  height: 150px;
+  background-color: #facc15; 
+  border-radius: 50px 50px 0 0; 
+  justify-content: center;
+  padding-top: 35px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+  .character {
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+  }
+
+  .eyesRow {
+    gap: 10px;
+  }
+
+  .mouth {
+    width: 16px;
+    height: 6px;
+    margin-top: 8px;
+  }
+
+  .mouth.typing { width: 10px; height: 10px; }
+  .mouth.password { width: 18px; height: 3px; }
+  .mouth.submit { width: 32px; height: 18px; }
+  .mouth.side { width: 7px; height: 16px; }
+
+  .rectangle {
+    width: 110px;
+    height: 240px;
+    padding-top: 40px;
+  }
+
+  .box {
+    width: 70px;
+    height: 140px;
+    padding-top: 30px;
+  }
+  .box .eyesRow { gap: 8px; }
+
+  .semicircle {
+    width: 135px;
+    height: 80px;
+    padding-top: 15px;
+  }
+
+  .cylinder {
+    width: 80px;
+    height: 120px;
+    padding-top: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .eyesRow {
+    gap: 8px;
+  }
+
+  .mouth {
+    width: 12px;
+    height: 5px;
+    margin-top: 6px;
+  }
+
+  .mouth.typing { width: 8px; height: 8px; }
+  .mouth.password { width: 15px; height: 2px; }
+  .mouth.submit { width: 25px; height: 14px; }
+  .mouth.side { width: 6px; height: 12px; }
+
+  .rectangle {
+    width: 80px;
+    height: 180px;
+    padding-top: 30px;
+  }
+
+  .box {
+    width: 50px;
+    height: 105px;
+    padding-top: 20px;
+  }
+  .box .eyesRow { gap: 6px; }
+
+  .semicircle {
+    width: 100px;
+    height: 60px;
+    padding-top: 12px;
+  }
+
+  .cylinder {
+    width: 60px;
+    height: 90px;
+    padding-top: 20px;
+  }
+}
